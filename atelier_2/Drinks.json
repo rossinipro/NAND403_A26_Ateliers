@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Whiskey",
+        "price": 5.0
+    },
+    {
+        "name": "Vodka",
+        "price": 4.0
+    },
+    {
+        "name": "Water",
+        "price": 6.0
+    }
+]
