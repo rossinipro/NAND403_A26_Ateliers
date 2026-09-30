@@ -1,10 +1,7 @@
 import sys
 import json
-from PySide6 import QtWidgets(
-    QMainWindow,
-    Qapplication,
-    QTableWidget
-)
+from PySide6.QtWidgets import QMainWindow, QApplication, QTableWidgetItem, QTableWidget
+
 
 json_path = sys.argv[1] #read the path of the json file from the command line argument
 print("JSON FILE PATH >>>>>>>>>>>>>>>>> " + json_path + " <<<<<<<<<<<<<<")
@@ -16,13 +13,14 @@ except: #execute if there is an error while loading the json file
     print("Error occurred while loading JSON file from path: " + json_path)
 
 
-#for each key (name, price) then each values (whiskey, 5)
-#items: name, whiskey
-for key in data: 
-    for values in key.values():
-        print(f"    - {values}")
+    #for each key (name, price) then each values (whiskey, 5)
+    #items: name, whiskey
 
-app= Qapplication([])
+#for key in data: 
+#    for values in key.values():
+#        print(f"    - {values}")
+
+app= QApplication([])
 
 #make table
 tableau = QTableWidget()
