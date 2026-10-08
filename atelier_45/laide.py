@@ -24,7 +24,7 @@ class RandomGenerator(QWidget):
     def build_ui(self):
         layout = QGridLayout(self)
 
-
+        # Number of objects input
         label_number_objects = QLabel("Number of objects")
         layout.addWidget(label_number_objects, 0, 0)
         self.text_input_number_objects = QLineEdit()
@@ -37,7 +37,7 @@ class RandomGenerator(QWidget):
         label_max = QLabel("Max")
         layout.addWidget(label_max, 1, 2)
         
-
+        # Position inputs
         label_posx = QLabel("Position X")
         layout.addWidget(label_posx, 2, 0)
         self.text_input_posx_min = QLineEdit()
@@ -66,6 +66,7 @@ class RandomGenerator(QWidget):
         self.text_input_scale_max = QLineEdit()
         layout.addWidget(self.text_input_scale_max, 5, 2)
 
+        # Create button
         self.create_button = QPushButton("Create objects")
         self.create_button.clicked.connect(self.create_object)
         layout.addWidget(self.create_button, 6, 0, 1, 3)
@@ -74,17 +75,38 @@ class RandomGenerator(QWidget):
         
 
     def create_object(self):
-        forme = random.choice(["cube", "cylindre", "sphere"])
+        
+        # Get the number of objects to create
+        number_objects = int(self.text_input_number_objects.text())
 
-        if forme == "cube":
-            objet = cmds.polyCube()[0]
-        elif forme == "cylindre":
-            objet = cmds.polyCylinder()[0]
-        else:
-            objet = cmds.polySphere()[0]
+        # Get the min and max values for position and scale
+        posx_min = float(self.text_input_posx_min.text())
+        posx_max = float(self.text_input_posx_max.text())
+        posy_min = float(self.text_input_posy_min.text())
+        posy_max = float(self.text_input_posy_max.text())
+        posz_min = float(self.text_input_posz_min.text())
+        posz_max = float(self.text_input_posz_max.text())
+        scale_min = float(self.text_input_scale_min.text())
+        scale_max = float(self.text_input_scale_max.text())
 
-        random_value = random.uniform(-10, 10)
-        cmds.move(random_value, random_value, random_value, objet)
+        # Create the specified number of objects
+        for number in range(number_objects):
+            
+            #Choose a random shape for each object
+            forme = random.choice(["cube", "cylindre", "sphere"])
+
+            if forme == "cube":
+                objet = cmds.polyCube()[0]
+            elif forme == "cylindre":
+                objet = cmds.polyCylinder()[0]
+            else:
+                objet = cmds.polySphere()[0]
+
+            # Set random position and scale for each object
+            random_posx = random.uniform(posx_min, posx_max)
+            random_posy = random.uniform(posy_min, posy_max)
+            random_posz = random.uniform(posz_min, posz_max)
+            cmds.move(random_posx, random_posy, random_posz, objet)
 
 
 def main():
