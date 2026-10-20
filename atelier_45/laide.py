@@ -7,8 +7,6 @@ from PySide6.QtWidgets import (
     QLabel,
     QPushButton,
     QGridLayout,
-    QVBoxLayout,
-    QHBoxLayout
 )
 
 from PySide6 import QtCore
@@ -106,7 +104,9 @@ class RandomGenerator(QWidget):
             random_posx = random.uniform(posx_min, posx_max)
             random_posy = random.uniform(posy_min, posy_max)
             random_posz = random.uniform(posz_min, posz_max)
+            random_scale = random.uniform(scale_min, scale_max)
             cmds.move(random_posx, random_posy, random_posz, objet)
+            cmds.scale(random_scale, random_scale, random_scale, objet)
 
 
 def main():
