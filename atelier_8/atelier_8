@@ -1,17 +1,15 @@
+"""
+Notes atelier 8:
 import os
 import sys
 
 absolute_path = os.path.abspath(__file__) #show this file path NAND403_a26_Atelier_8/atelier_8/atelier_8.py
 absolute_folder_path = os.path.dirname(absolute_path) #show this file directory NAND403_a26_Atelier_8/atelier_8
 sys.path.append(absolute_folder_path) #append the directory to the Python path
+current_directory = os.path.abspath(os.path.curdir)
+
 #sys.path show all the directories where Python will look for modules to import.
 #By appending the directory of the current file to the Python path, we ensure that any
 #modules in that directory can be imported and used in this script.
 
-import ui
-def my_function():
-    current_directory = os.path.abspath(os.path.curdir)
-    print("Current directory:", current_directory)
-
-my_class = ui.MyClass()
-my_class.print_message()  # Call the method from MyClass
+"""

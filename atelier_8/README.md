@@ -4,7 +4,7 @@
 ## 1. Télécharger le script
 Téléchargez les fichiers suivants:
 - `atelier7.py` https://github.com/rossinipro/NAND403_A26_Ateliers/blob/main/atelier_7/ateliery.py
-- `icon.png`
+- `icon.png` https://github.com/rossinipro/NAND403_A26_Ateliers/blob/main/atelier_8/icon.jpg
 
 ## 2. Installer le script dans Maya
 1. Ouvrez Maya.
